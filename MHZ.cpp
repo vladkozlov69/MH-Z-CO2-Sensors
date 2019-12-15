@@ -57,7 +57,7 @@ boolean MHZ::isPreHeating() {
 }
 
 boolean MHZ::isReady() {
-  if (isPreHeating()) return false;
+  //if (isPreHeating()) return false;
   if (_type == MHZ14A)
     return lastRequest < millis() - MHZ14A_RESPONSE_TIME;
   else if (_type == MHZ19B)
