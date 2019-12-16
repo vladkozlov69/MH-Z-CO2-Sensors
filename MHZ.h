@@ -11,8 +11,9 @@
 #include "WProgram.h"
 #endif
 
+#ifdef __AVR__
 #include <SoftwareSerial.h>
-
+#endif
 // types of sensors.
 extern const int MHZ14A;
 extern const int MHZ19B;
@@ -25,7 +26,9 @@ extern const int STATUS_NOT_READY;
 
 class MHZ {
  public:
+ #ifdef __AVR__
   MHZ(uint8_t rxpin, uint8_t txpin, uint8_t pwmpin, uint8_t type);
+ #endif 
   MHZ(Stream * serial, uint8_t pwmpin, uint8_t type);
 
   void setDebug(boolean enable);

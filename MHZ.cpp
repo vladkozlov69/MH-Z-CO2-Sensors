@@ -18,6 +18,7 @@ const int STATUS_NOT_READY = -5;
 
 unsigned long lastRequest = 0;
 
+#ifdef __AVR__
 MHZ::MHZ(uint8_t rxpin, uint8_t txpin, uint8_t pwmpin, uint8_t type) {
   SoftwareSerial * ss = new SoftwareSerial(rxpin, txpin);
   _pwmpin = pwmpin;
@@ -26,6 +27,7 @@ MHZ::MHZ(uint8_t rxpin, uint8_t txpin, uint8_t pwmpin, uint8_t type) {
   ss->begin(9600);
   _serial = ss;
 }
+#endif
 
 MHZ::MHZ(Stream * serial, uint8_t pwmpin, uint8_t type) {
     _serial = serial;
